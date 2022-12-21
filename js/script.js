@@ -31,3 +31,18 @@ async function wait(){
     let risultato = await promise; 
     alert(risultato);
 }
+
+
+function richiedi(){
+    let promise = fetch(
+        "http://localhost/4A/Es3_FETCH/Server/prova.php",
+        {
+            method:'GET'
+        }
+    ); 
+    promise.then(
+        async (risposta)=>{
+            alert(await risposta.text());
+        }
+    )
+}
