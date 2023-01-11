@@ -42,7 +42,28 @@ function richiedi(){
     ); 
     promise.then(
         async (risposta)=>{
-            console.log(await risposta.json());
+            //.json() restituisce una PROMISE gestita dall'await
+            let film = await risposta.json();
+            aggiornaFILM(film);
         }
+
+        //GESTISCO la PROMISE di .json SENZA AWAIT e ASYNC
+        //(risposta)=>{risposta.json().then((dati)=>{aggiornaFilm(dati)})}
     )
+}
+
+function aggiornaFILM(film){
+    console.log(film);
+    let catalogo = document.querySelector("#catalogoFilm");
+    catalogo.innerHTML = "";
+    for(let i=0; i<film.length; i++){
+        let card = `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">`+ film[i].titolo +`</h5>
+            <p class="card-text">`+ film[i].desc +`</p>
+            </div>
+        </div>`;
+        catalogo.innerHTML += card;
+    }
+    
 }
