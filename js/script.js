@@ -35,14 +35,14 @@ async function wait(){
 
 function richiedi(){
     let promise = fetch(
-        "http://localhost/4A/Es3_FETCH/Server/prova.php",
+        "http://localhost/4A/videoteca/Server/controller.php",
         {
             method:'GET'
         }
     ); 
     promise.then(
         async (risposta)=>{
-            alert(await risposta.text());
+            console.log(await risposta.json());
         }
     )
 }
