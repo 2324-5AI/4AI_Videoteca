@@ -15,24 +15,6 @@
 
 */
 
-wait();
-
-async function wait(){
-    let promise = new Promise(
-        (resolve)=>{
-            setTimeout(function(){
-                resolve("TIMER SCATTATO");
-            }, 10000);
-        }
-    );
-
-    //Quando il timeout terminerà verrà inserito 
-    //in risultato "TIMER SCATTATO"
-    let risultato = await promise; 
-    alert(risultato);
-}
-
-
 function richiedi(){
     let promise = fetch(
         "http://localhost/4A/videoteca/Server/controller.php",
@@ -57,6 +39,8 @@ function aggiornaFILM(film){
     let catalogo = document.querySelector("#catalogoFilm");
     catalogo.innerHTML = "";
     for(let i=0; i<film.length; i++){
+        //backtick ` -> servono ad scrivere su più righe una stringa 
+        //senza doverle concatenare 
         let card = `<div class="card" style="width: 18rem;">
             <div class="card-body">
             <h5 class="card-title">`+ film[i].titolo +`</h5>
