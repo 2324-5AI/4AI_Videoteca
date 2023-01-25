@@ -1,77 +1,62 @@
-/* 
-    PROMISE 
-        1. chiamata asincrona in sincrona -> WAIT
-        2. rendere più leggibile e gestibile la 
-                risposta di una chiamata asincrona -> THEN e CATCH
-*/
+//casa -> 80
+//pc scuola -> 8080
+var porta = 8080;
+var indirizzoServer = "http://localhost:"+porta+"/4AInf//Server/";
 
-/* 
-        AWAIT --- ASYNC 
-    Servono a rendere più leggibile l'utilizzo delle promise
+var film, generi;
 
-    OBIETTIVI 
-    ASYNC viene usata nella definizione di funzioni
-    AWAIT può essere usata solo in funzioni ASYNC.
 
-*/
 richiedi();
 
 function richiedi(){
-    let promise = fetch(
-        "http://localhost:8080/4AInf//Server/controller.php",
-        {
-            method:'GET'
-        }
-    ); 
-    promise.then(
+    let promise1 = fetch(indirizzoServer + "controller.php", {method:'GET'}); 
+    let promise2 = fetch(indirizzoServer + "generi.php",{method:'GET'});
+
+    promise1.then(
         async (risposta)=>{
             //.json() restituisce una PROMISE gestita dall'await
-            let film = await risposta.json();
-            aggiornaFILM(film);
+            film = await risposta.json();
+            if(typeof generi != "undefined")
+                aggiornaFILM();
         }
 
         //GESTISCO la PROMISE di .json SENZA AWAIT e ASYNC
         //(risposta)=>{risposta.json().then((dati)=>{aggiornaFilm(dati)})}
     )
+
+ 
+    promise2.then(
+        async (risposta)=>{
+            //.json() restituisce una PROMISE gestita dall'await
+            generi = await risposta.json();
+            if(typeof film != "undefined")
+                aggiornaFILM();
+        }
+    )
 }
 
-function aggiornaFILM(film){
+function aggiornaFILM(){
     //non entra qua
     console.log(film);
+    console.log(generi);
     let catalogo = document.querySelector("#catalogoFilm");
     catalogo.innerHTML = "";
     let color;
     for(let i=0; i<film.length; i++){
         //backtick ` -> servono ad scrivere su più righe una stringa 
         //senza doverle concatenare
-        let classi = ""; 
-        switch(film[i].genere)
-        {
-            /*case "Drammatico":
-                cardDiv.style.backgroundColor = "red"
-                cardDiv.style.color = "white"
-                break;
-            case "Commedia":
-                cardDiv.style.backgroundColor = "yellow"
-                break;*/
-            case "Fantasy":
-                classi = "fantasy";
-                break;
-            case "Fantascientifico":
-                classi = "fantascienza";
-                break;
-            case "Azione":
-                classi = "azione";
-                break;
-            /*case "Film di supereroi":
-                cardDiv.style.backgroundColor = "pink"
-                cardDiv.style.color = "white"
-                break;
-            case "Avventura":
-                cardDiv.style.backgroundColor = "orange"
-                cardDiv.style.color = "white"
-                break;*/
-        }
+        
+        let classi ="";
+        /* METODO 2 */
+        classi = film[i].genere.toLowerCase();
+
+        /* METODO 3 */
+        /*let i=0;
+        while(i<generi.length && generi[i] != film[i].genere.toLowerCase()){
+            i++;
+        }
+        classi = generi[i];*/
+
 
         let card = `<div class="card `+ classi +`" style="width: 18rem;">
             <div class="card-body">
@@ -87,3 +72,4 @@ function aggiornaFILM(film){
 
     
 }
+
