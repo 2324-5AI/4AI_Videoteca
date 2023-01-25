@@ -73,3 +73,13 @@ function aggiornaFILM(){
     
 }
 
+function login(){
+    let promise = fetch(indirizzoServer + "login.php", {method:'GET'});
+    promise.then(
+        async (risposta)=>{
+            //.json() restituisce una PROMISE gestita dall'await
+            console.log(await risposta.json());
+            
+        }
+    )
+}
