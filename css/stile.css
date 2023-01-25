@@ -9,3 +9,18 @@
 .card{
     margin-left:10px;
 }
+
+.azione{
+  background-color: brown;
+  color:white;
+}
+
+.fantasy{
+  background-color: green;
+  color:white;
+}
+
+.fantascienza{
+  background-color: red;
+  color:white;
+}
