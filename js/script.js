@@ -1,7 +1,7 @@
 //casa -> 80
 //pc scuola -> 8080
 var porta = 8080;
-var indirizzoServer = "http://localhost:"+porta+"/4AInf//Server/";
+var indirizzoServer = "http://localhost:"+porta+"/videoteca/Server/";
 
 var film, generi;
 
@@ -74,7 +74,10 @@ function aggiornaFILM(){
 }
 
 function login(){
-    let promise = fetch(indirizzoServer + "login.php", {method:'GET'});
+    let data = {"nome":"Daniele"};
+    let promise = fetch(indirizzoServer + "login.php?nome=Daniele", {
+        method:'GET'
+    });
     promise.then(
         async (risposta)=>{
             //.json() restituisce una PROMISE gestita dall'await
