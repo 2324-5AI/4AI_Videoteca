@@ -74,9 +74,16 @@ function aggiornaFILM(){
 }
 
 function login(){
-    let data = {"nome":"Daniele"};
-    let promise = fetch(indirizzoServer + "login.php?nome=Daniele", {
-        method:'GET'
+    let val = document.getElementById("txtNome").value;
+    let data = {"nome":val};
+    let promise = fetch(indirizzoServer + "login.php", {
+        method:'POST',
+        headers:{
+            /* TIPO DI DATI INVIATI */
+            'Content-Type':'application/json'
+        },
+        /* CONVERSIONE DA JSON a STRINGA */
+        body:JSON.stringify(data)
     });
     promise.then(
         async (risposta)=>{

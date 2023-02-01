@@ -9,8 +9,21 @@
     if(isset($_GET["nome"])){
         $nome = $_GET["nome"];
     }
+    /*LOGIN PER CHI UTILIZZA FORM con ACTION lato client */
+    if(isset($_POST["nome"])){
+        $nome = $_POST["nome"];
+    }
+    /* PER CATTURARE I DATI JSON ARRIVATI */
+    $json = file_get_contents('php://input');
+    $dati = json_decode($json);
+    if(!is_null($dati)){
+        //con -> accedo alle proprietà/attributi di un oggetto in PHP
+        $nome = $dati->nome;
+    }
 
 
+    $obj->get = $_GET;
+    $obj->json = $dati;
     $obj->post = $_POST;
     $obj->nome = $nome;
     if($nome == "Daniele"){

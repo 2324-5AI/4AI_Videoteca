@@ -14,7 +14,11 @@
     <header class="header">
         <a href="#" class="logo">ES VIDEOTECA</a>
         <input type="text" id="txtNome">
-        <button onclick="login()">ACCEDI</button>
+        <button onclick="login()">ACCEDI via FETCH</button>
+        <form action="Server/login.php" method="POST">
+            <input type="text" id="txtNome" name="nome" >
+            <input type="submit" value="ACCEDI via FORM">
+        </form>
     </header>
     <div id="catalogoFilm">
     </div>
