@@ -73,17 +73,6 @@ function aggiornaFILM(){
     
 }
 
-function loginGET(){
-    let val = document.getElementById("txtNome").value;
-    let promise = fetch(indirizzoServer + "login.php?nome="+val, {method:'GET'});
-    promise.then(
-        async (risposta)=>{
-            //.json() restituisce una PROMISE gestita dall'await
-            console.log(await risposta.json());
-            
-        }
-    )
-}
 
 function loginPOST(){
     let val = document.getElementById("txtNome").value;
@@ -100,8 +89,12 @@ function loginPOST(){
     promise.then(
         async (risposta)=>{
             //.json() restituisce una PROMISE gestita dall'await
-            console.log(await risposta.json());
-            
+            let dati = await risposta.json();
+            console.log(dati);
+            if(dati.cod==1 && dati.login==true)
+                alert("Login avvenuto con successo");
+            else
+                alert("Login errato");
         }
     )
 }

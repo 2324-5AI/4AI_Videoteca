@@ -15,15 +15,6 @@
     $arrayPersone = json_decode($persone);
 
     $nome = "";
-    //Verifico se esiste la chiave (key) nome in $_POST
-    if(isset($_GET["nome"])){
-        $nome = $_GET["nome"];
-    }
-    /*LOGIN PER CHI UTILIZZA FORM con ACTION lato client */
-    if(isset($_POST["nome"])){
-        $nome = $_POST["nome"];
-    }
-    /* PER CATTURARE I DATI JSON ARRIVATI */
     $json = file_get_contents('php://input');
     $dati = json_decode($json);
     if(!is_null($dati)){
