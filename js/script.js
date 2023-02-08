@@ -91,10 +91,28 @@ function loginPOST(){
             //.json() restituisce una PROMISE gestita dall'await
             let dati = await risposta.json();
             console.log(dati);
-            if(dati.cod==1 && dati.login==true)
+            if(dati.cod==1 && dati.login==true){
                 alert("Login avvenuto con successo");
-            else
+
+                //METODO 1: Seleziono i GENERI che non voglio vedere, prelevo le card di quei generei e le nascondo
+                //Filtro le card in base alle preferenze
+                for(let genere of generi){
+                    //Se il vettore delle preferenze non contieneil genere
+                    if(!dati.preferenze.includes(genere.genere)){
+                        //Nascondo le card
+                        let array = document.getElementsByClassName(genere.genere);
+                        for(let card of array){
+                            card.style.display = "none";
+                        }
+                    }
+                }
+
+                //METODO 2: Cancello tutte le card e inserisco dinamicamente SOLO quelle che voglio vedere
+           
+                //METODO 3: prendo tutte le card e nascondo quelle che non voglio vedere
+            }else
                 alert("Login errato");
+
         }
     )
 }

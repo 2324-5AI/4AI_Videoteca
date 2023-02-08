@@ -37,6 +37,7 @@
         //Ho trovato
         $obj->login = true;
         $obj->cod = 1;
+        $obj->preferenze = $arrayPersone[$i]->preferenze;
     }else{
         $obj->cod = -1;
     }
