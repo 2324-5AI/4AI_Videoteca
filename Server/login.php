@@ -4,6 +4,16 @@
     //DEFINITO UN OGGETTO JSON
     $obj = new stdClass();
 
+    $persone = '
+    [
+        {"nome":"Luca", "cognome":"Abete", "preferenze":["azione", "avventura"]},
+        {"nome":"Andrew", "cognome":"Tate", "preferenze":["gangster", "fantasy", "commedie", "drammi"]},
+        {"nome":"Matteo", "cognome":"Denaro Messina", "preferenze":["thriller", "gialli", "fantascienza"]}
+    ]
+    ';
+
+    $arrayPersone = json_decode($persone);
+
     $nome = "";
     //Verifico se esiste la chiave (key) nome in $_POST
     if(isset($_GET["nome"])){
@@ -26,7 +36,14 @@
     $obj->json = $dati;
     $obj->post = $_POST;
     $obj->nome = $nome;
-    if($nome == "Daniele"){
+
+    //RICERCA PARZIALE (Appena trovo il nome esco dal ciclo) 
+    $i = 0;
+    while($i<count($arrayPersone) && $arrayPersone[$i]->nome != $nome){
+        $i++;
+    }
+    if($i<count($arrayPersone)){
+        //Ho trovato
         $obj->login = true;
         $obj->cod = 1;
     }else{
