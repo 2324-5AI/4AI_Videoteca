@@ -14,6 +14,7 @@
 
     $arrayPersone = json_decode($persone);
 
+    //ISTRUZIONI PER PRELVARE I DATI ARRIVATI DAL CLIENT
     $ut = "";
     $pwd = "";
     $json = file_get_contents('php://input');

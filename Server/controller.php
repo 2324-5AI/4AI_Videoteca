@@ -4,6 +4,7 @@
 
       $objFilm = '[
         {
+            "codFilm":1,
             "titolo": "Joker",
             "regista": " REG: Todd Phillips",
             "annoUscita": "A.U. 2019",
@@ -12,6 +13,7 @@
         },
     
         {
+            "codFilm":2,
             "titolo": "Twilight",
             "regista": "REG: Catherine Hardwicke",
             "annoUscita": "A.U. 2008",
@@ -20,6 +22,7 @@
         },
     
         {
+            "codFilm":3,
             "titolo": "Dune",
             "regista": "REG: Denis Villeneuve.",
             "annoUscita": "A.U. 2021",
@@ -28,6 +31,7 @@
         },
     
         {
+            "codFilm":4,
             "titolo": "Interstellar ",
             "regista": "REG: Christopher Nolan",
             "annoUscita": "A.U. 2014",
@@ -36,6 +40,7 @@
         },
     
         {
+            "codFilm":5,
             "titolo": "Una notte da leoni",
             "regista": "REG: Todd Phillips",
             "annoUscita": "A.U. 2009",
@@ -44,6 +49,7 @@
         },
     
         {
+            "codFilm":6,
             "titolo": "Il cavaliere oscuro",
             "regista": "REG: Christopher Nolan",
             "annoUscita": "A.U. 2008",
@@ -52,6 +58,7 @@
         },
     
         {
+            "codFilm":7,
             "titolo": "Perfetti Sconosciuti",
             "regista": "REG: Paolo Genovese",
             "annoUscita": "A.U. 2016",
@@ -60,6 +67,7 @@
         },
     
         {
+            "codFilm":8,
             "titolo": "L uomo di acciaio",
             "regista": "REG: Zack Snyder",
             "annoUscita": "A.U. 2013",
@@ -68,6 +76,7 @@
         },
     
         {
+            "codFilm":9,
             "titolo": "La vita è bella",
             "regista": "REG: Roberto Benigni.",
             "annoUscita": "A.U. 1997",
@@ -76,6 +85,7 @@
         },
     
         {
+            "codFilm":10,
             "titolo": "Biancaneve ",
             "regista": "REG: Tarsem Singh",
             "annoUscita": "A.U. 2012",
@@ -84,6 +94,7 @@
         },
     
         {
+            "codFilm":11,
             "titolo": "Thor",
             "regista": "REG: Kenneth Branagh",
             "annoUscita": "A.U. 2011",
@@ -92,6 +103,7 @@
         },
     
         {
+            "codFilm":12,
             "titolo": "spider-man homecoming",
             "regista": "REG: Jon Watts",
             "annoUscita": "A.U. 2017",
@@ -100,6 +112,7 @@
         },
     
         {
+            "codFilm":13,
             "titolo": "Cenerentola",
             "regista": "REG: Kenneth Branagh",
             "annoUscita": "A.U. 2015",
@@ -108,6 +121,7 @@
         },
     
         {
+            "codFilm":14,
             "titolo": "Iron Man",
             "regista": "REG: Jon Favreau",
             "annoUscita": "A.U. 2008",
@@ -116,6 +130,7 @@
         },
     
         {
+            "codFilm":15,
             "titolo": "Hulk",
             "regista": "REG: Ang Lee ",
             "annoUscita": "A.U. 2003",

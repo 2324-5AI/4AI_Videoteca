@@ -59,18 +59,63 @@ function aggiornaFILM(){
 
 
         let card = `<div class="card `+ classi +`" style="width: 18rem;">
-            <div class="card-body">
-            <h5 class="card-title">`+ film[i].titolo +`</h5>
-            <h6 class="card-subtitle mb-2 text-muted">`+ film[i].regista +`</h6>
-            <p class="card-text">`+ film[i].annoUscita +`</p>
-            <p class="card-text">`+ film[i].attori +`</p>
-            <p class="card-text">`+ film[i].genere +`</p>
+            <div class="card-body" onclick="mostraTrailer(${film[i].codFilm})">
+                <h5 class="card-title">`+ film[i].titolo +`</h5>
+                <h6 class="card-subtitle mb-2 text-muted">`+ film[i].regista +`</h6>
+                <p class="card-text">`+ film[i].annoUscita +`</p>
+                <p class="card-text">`+ film[i].attori +`</p>
+                <p class="card-text">`+ film[i].genere +`</p>
             </div>
         </div>`;
         catalogo.innerHTML +=card;  
     }
 
     
+}
+
+function mostraTrailer(cod){
+    alert("mostra trailer:" + cod);
+    //1. preparo i dati da mandare
+    let data = {cod};
+    //2. promise con fetch
+    let promise = fetch(indirizzoServer + "trailer.php", {
+        method:'POST',
+        headers:{
+            /* TIPO DI DATI INVIATI */
+            'Content-Type':'application/json'
+        },
+        /* CONVERSIONE DA JSON a STRINGA */
+        body:JSON.stringify(data)
+    });
+
+    //3. ANALIZZO LA RISPOSTA
+    /*
+    //METODO più leggibile
+    promise.then(
+        async (response)=>{
+            let dati = await response.json();
+            console.log(dati);
+        }
+    )
+    */
+
+    //METODO senza await e con notazione funzionale 
+    /*promise.then((response)=>response.json())//Senza {} (altrimenti return)
+    .then(
+        (data)=>{console.log(data);}
+    );*/
+
+    //METODO senza await e senza notazione funzionale
+    promise.then(
+        function(response){
+            return response.json();
+        }
+    )
+    .then(
+        function(data){
+            console.log(data);
+        }
+    );
 }
 
 
