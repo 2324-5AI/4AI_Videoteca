@@ -6,31 +6,34 @@
 
     $persone = '
     [
-        {"nome":"Luca", "cognome":"Abete", "preferenze":["azione", "avventura"]},
-        {"nome":"Andrew", "cognome":"Tate", "preferenze":["gangster", "fantasy", "commedie", "drammi"]},
-        {"nome":"Matteo", "cognome":"Denaro Messina", "preferenze":["thriller", "gialli", "fantascienza"]}
+        {"ut":"luca.abete", "pwd":"prova","nome":"Luca", "cognome":"Abete", "preferenze":["azione", "avventura"]},
+        {"ut":"andrew.tate", "pwd":"prova","nome":"Andrew", "cognome":"Tate", "preferenze":["gangster", "fantasy", "commedie", "drammi"]},
+        {"ut":"matteo.denaro", "pwd":"prova","nome":"Matteo", "cognome":"Denaro Messina", "preferenze":["thriller", "gialli", "fantascienza"]}
     ]
     ';
 
     $arrayPersone = json_decode($persone);
 
-    $nome = "";
+    $ut = "";
+    $pwd = "";
     $json = file_get_contents('php://input');
     $dati = json_decode($json);
     if(!is_null($dati)){
         //con -> accedo alle proprietà/attributi di un oggetto in PHP
-        $nome = $dati->nome;
+        $ut = $dati->ut;
+        $pwd = $dati->pwd;
     }
 
 
     $obj->get = $_GET;
     $obj->json = $dati;
     $obj->post = $_POST;
-    $obj->nome = $nome;
+    $obj->ut = $ut;
+    $obj->pwd = $pwd;
 
     //RICERCA PARZIALE (Appena trovo il nome esco dal ciclo) 
     $i = 0;
-    while($i<count($arrayPersone) && $arrayPersone[$i]->nome != $nome){
+    while($i<count($arrayPersone) && ($arrayPersone[$i]->ut != $ut || $arrayPersone[$i]->pwd != $pwd)){
         $i++;
     }
     if($i<count($arrayPersone)){

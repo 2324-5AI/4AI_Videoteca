@@ -76,7 +76,8 @@ function aggiornaFILM(){
 
 function loginPOST(){
     let val = document.getElementById("txtNome").value;
-    let data = {"nome":val};
+    let pwd = document.getElementById("txtPwd").value;
+    let data = {"ut":val, pwd};
     let promise = fetch(indirizzoServer + "login.php", {
         method:'POST',
         headers:{
