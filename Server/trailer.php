@@ -10,6 +10,12 @@ $dati = '
         }
     ]
 ';
+
+$fp = fopen("files/trailer.json", "w");
+fwrite($fp, $dati);
+fclose($fp);
+
+
 $arrayTrailer = json_decode($dati);
 
 //ISTRUZIONI PER PRELVARE I DATI ARRIVATI DAL CLIENT
