@@ -4,13 +4,7 @@
     //DEFINITO UN OGGETTO JSON
     $obj = new stdClass();
 
-    $persone = '
-    [
-        {"ut":"luca.abete", "pwd":"prova","nome":"Luca", "cognome":"Abete", "preferenze":["azione", "avventura"]},
-        {"ut":"andrew.tate", "pwd":"prova","nome":"Andrew", "cognome":"Tate", "preferenze":["gangster", "fantasy", "commedie", "drammi"]},
-        {"ut":"matteo.denaro", "pwd":"prova","nome":"Matteo", "cognome":"Denaro Messina", "preferenze":["thriller", "gialli", "fantascienza"]}
-    ]
-    ';
+    $persone = file_get_contents("files/utenti.json");
 
     $arrayPersone = json_decode($persone);
 

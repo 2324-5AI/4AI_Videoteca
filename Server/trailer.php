@@ -2,19 +2,7 @@
 
 header("Access-Control-Allow-Origin: *");
 
-$dati = '
-    [
-        {
-            "codFilm":1, 
-            "trailer":"https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjijd_6uZf9AhXj57sIHS1uDOYQyCl6BAgOEAM&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Do7nkJDjuSp4&usg=AOvVaw1ExcAQqNr1uLW27SRuO2mw"
-        }
-    ]
-';
-
-$fp = fopen("files/trailer.json", "w");
-fwrite($fp, $dati);
-fclose($fp);
-
+$dati = file_get_contents("files/trailer.json");
 
 $arrayTrailer = json_decode($dati);
 

@@ -1,0 +1,7 @@
+
+    [
+        {"ut":"luca.abete", "pwd":"prova","nome":"Luca", "cognome":"Abete", "preferenze":["azione", "avventura"]},
+        {"ut":"andrew.tate", "pwd":"prova","nome":"Andrew", "cognome":"Tate", "preferenze":["gangster", "fantasy", "commedie", "drammi"]},
+        {"ut":"matteo.denaro", "pwd":"prova","nome":"Matteo", "cognome":"Denaro Messina", "preferenze":["thriller", "gialli", "fantascienza"]}
+    ]
+    

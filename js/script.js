@@ -70,7 +70,9 @@ function aggiornaFILM(){
         catalogo.innerHTML +=card;  
     }
 
-    
+    //Preparare il download
+    let a = document.getElementById("aFilms");
+    a.href = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(film));    
 }
 
 function mostraTrailer(cod){
