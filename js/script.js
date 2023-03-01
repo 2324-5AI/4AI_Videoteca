@@ -74,7 +74,7 @@ function aggiornaFILM(){
 }
 
 function mostraTrailer(cod){
-    alert("mostra trailer:" + cod);
+    //alert("mostra trailer:" + cod);
     //1. preparo i dati da mandare
     let data = {cod};
     //2. promise con fetch
@@ -113,7 +113,14 @@ function mostraTrailer(cod){
     )
     .then(
         function(data){
+            //LINK -> data.link
             console.log(data);
+            if(typeof data.link == "undefined"){
+                alert("Trailer non presente");
+            }else{
+                //Nuova scheda => open(url, target)
+                window.open(data.link, "_blank");
+            }
         }
     );
 }
