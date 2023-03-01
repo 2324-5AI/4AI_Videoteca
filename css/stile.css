@@ -28,3 +28,15 @@
 header, footer{
   text-align: center;
 }
+
+#aFilms{
+  width: fit-content;
+  margin: 0px auto;
+  margin-top:20px;
+  margin-bottom: 10px;
+  padding: 2px;
+  display: block;
+  background-color: blue;
+  border-radius: 10px;
+  border:2px solid black;
+}
